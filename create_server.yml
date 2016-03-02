@@ -5,7 +5,7 @@
   vars:
     cpu_count: 1
     mem_size: 1
-    pass_word: "Fghj123!@#"
+    pass_word: "bad idea to have it here.""
   tasks:
     - name: Build Server Play
       clc_server:
