@@ -2,16 +2,20 @@
 - name: create a demo server playbook
   hosts: localhost
   gather_facts: False
+  vars:
+    cpu_count: 1
+    mem_size: 1
+    pass_word: "Fghj123!@#"
   tasks:
     - name: Build Server Play
       clc_server:
         name: nsrvr
         template: UBUNTU-14-64-TEMPLATE
-        cpu: 1
-        memory: 1
+        cpu: "{{ cpu_count }}" 
+        memory: "{{ mem_size }}" 
         group: 'Default Group'
         location: 'CA2'
         count: 1
-        password: "Fghj123!@#"
+        password: "{{ pass_word }}" 
       register: my_server
     - debug: var=my_server
