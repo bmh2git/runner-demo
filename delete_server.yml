@@ -1,0 +1,12 @@
+---
+- name: Delete My Server
+  hosts: localhost
+  gather_facts: False
+  tasks:
+    - name: Delete Server
+      clc_server:
+        server_ids: "{{ server_name }}"
+        state: absent
+      register: del_srvr
+    
+    - debug: var=del_srvr
