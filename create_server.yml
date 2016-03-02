@@ -1,0 +1,16 @@
+---
+- name: create a demo server
+  hosts: localhost
+  gather_facts: False
+  tasks:
+    - name: Build my server
+      clc_server:
+        name: asrvr
+        template: UBUNTU-14-64-TEMPLATE
+        cpu: 1
+        memory: 1
+        location: 'CA2'
+        group: 'Default Group'
+        count: 1
+      register: my_srvr
+    - debug: var=my_srvr
