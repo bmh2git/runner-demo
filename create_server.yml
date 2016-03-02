@@ -6,6 +6,7 @@
     cpu_size: 1
     memory_size: 1 
     system_name: asrvr
+    default_password: 'efgH345#$%'
   tasks:
     - name: Build my server
       clc_server:
@@ -16,5 +17,6 @@
         location: 'CA2'
         group: 'Default Group'
         count: 1
+        password: "{{ default_password }}"
       register: my_srvr
     - debug: var=my_srvr
