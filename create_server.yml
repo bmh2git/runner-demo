@@ -2,13 +2,17 @@
 - name: create a demo server
   hosts: localhost
   gather_facts: False
+  vars:
+    cpu_size: 1
+    memory_size: 1 
+    system_name: asrvr
   tasks:
     - name: Build my server
       clc_server:
-        name: asrvr
+        name: "{{ system_name }}" 
         template: UBUNTU-14-64-TEMPLATE
-        cpu: 1
-        memory: 1
+        cpu: "{{ cpu_size }}" 
+        memory: "{{ memory_size }}" 
         location: 'CA2'
         group: 'Default Group'
         count: 1
