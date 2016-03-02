@@ -1,0 +1,17 @@
+---
+- name: create a demo server playbook
+  hosts: localhost
+  gather_facts: False
+  tasks:
+    - name: Build Server Play
+      clc_server:
+        name: nsrvr
+        template: UBUNTU-14-64-TEMPLATE
+        cpu: 1
+        memory: 1
+        group: 'Default Group'
+        location: 'CA2'
+        count: 1
+        password: "Fghj123!@#"
+      register: my_server
+    - debug: var=my_server
