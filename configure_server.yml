@@ -1,0 +1,10 @@
+---
+- name: Configure Server
+  hosts: all
+  gather_facts: False
+  tasks:
+    - name: install nginx
+      apt:
+        update_cache: yes
+        name: nginx
+        state: present
